@@ -7,6 +7,9 @@ import java.util.List;
 
 /**
  * Created by nowcoder on 2018/7/2.
+ * 评论的底层操作
+ * addComment；selectByEntity；getCommentCount
+ * void updateStatus：删除一条评论：其实就是更新；没有返回值
  */
 @Mapper
 public interface CommentDAO {

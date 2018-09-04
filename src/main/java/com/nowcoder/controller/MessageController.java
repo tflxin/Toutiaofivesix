@@ -16,7 +16,9 @@ import java.util.List;
 
 /**
  * Created by nowcoder on 2018/7/2.
-   消息中心
+   评论中心：MessageController
+ *conversationDetail：RequestMethod.GET
+
  */
 @Controller
 public class MessageController {
@@ -30,7 +32,7 @@ public class MessageController {
 
     @Autowired
     MessageService messageService;
-/*
+/**
  *conversationDetail
  * */
     @RequestMapping(path = {"/msg/detail"}, method = {RequestMethod.GET})

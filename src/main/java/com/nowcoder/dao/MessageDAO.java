@@ -11,7 +11,10 @@ import java.util.List;
 
 /**
  * Created by nowcoder on 2018/7/2.
- 消息中心：和消息相关的处理
+ 消息中心：和消息相关的处理addMessage：etConversationList；
+ getConversationUnReadCount：getConversationTotalCount{to_id=#{userId}"}
+
+
  */
 @Mapper
 public interface MessageDAO {
@@ -36,9 +39,8 @@ public interface MessageDAO {
 
     @Select({"select count(id) from ", TABLE_NAME, " where has_read = 0 and to_id=#{userId}"})
     int getConversationTotalCount(@Param("userId") int userId, @Param("conversationId") String conversationId);
+
     //下面用于得到会话框里面的消息：分页显示
-
-
     @Select({"select ", SELECT_FIELDS, " from ", TABLE_NAME,
             " where conversation_id=#{conversationId} order by id desc limit #{offset},#{limit}"})
     List<Message> getConversationDetail(@Param("conversationId") String conversationId, @Param("offset") int offset, @Param("limit") int limit);
