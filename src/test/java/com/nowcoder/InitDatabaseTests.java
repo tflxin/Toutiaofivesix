@@ -60,11 +60,12 @@ public class InitDatabaseTests {
   
   public void initData() {
    
-     Random random = new Random();
+     //随机产生10个用户
+       Random random = new Random();
  
        for (int i = 0; i < 11; ++i) {
        
-     User user = new User();
+        User user = new User();
     
         user.setHeadUrl(String.format("http://images.nowcoder.com/head/%dt.png", random.nextInt(1000)));
   
@@ -76,18 +77,18 @@ public class InitDatabaseTests {
     
         userDAO.addUser(user);
 
-   
-         News news = new News();
-         
-   news.setCommentCount(i);
+
+        News news = new News();
+
+        news.setCommentCount(i);
        
-     Date date = new Date();
+        Date date = new Date();
      
        date.setTime(date.getTime() + 1000*3600*5*i);
        
-     news.setCreatedDate(date);
+       news.setCreatedDate(date);
          
-   news.setImage(String.format("http://images.nowcoder.com/head/%dm.png", random.nextInt(1000)));
+    news.setImage(String.format("http://images.nowcoder.com/head/%dm.png", random.nextInt(1000)));
    
          news.setLikeCount(i+1);
         
@@ -130,6 +131,7 @@ public class InitDatabaseTests {
 
         }
 
+        //断言调试：debug崩溃但是编译时候自动忽略
         Assert.assertEquals("newpassword", userDAO.selectById(1).getPassword());
         userDAO.deleteById(1);
         Assert.assertNull(userDAO.selectById(1));
@@ -137,7 +139,7 @@ public class InitDatabaseTests {
         Assert.assertEquals(1, loginTicketDAO.selectByTicket("TICKET1").getUserId());
         Assert.assertEquals(2, loginTicketDAO.selectByTicket("TICKET1").getStatus());
 
-        //为了保证评论已经插进去了，把新闻选出来：这里去第一条，保证不为空
+        //为了保证评论已经插进去了，把新闻选出来：这里取第一条，保证不为空
         Assert.assertNotNull(commentDAO.selectByEntity(1, EntityType.ENTITY_NEWS).get(0));
     }
 
