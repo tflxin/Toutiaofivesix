@@ -13,8 +13,6 @@ import java.util.List;
  * Created by nowcoder on 2018/7/2.
  消息中心：和消息相关的处理addMessage：getConversationList；
  getConversationUnReadCount：getConversationTotalCount{to_id=#{userId}"}
-
-
  */
 @Mapper
 public interface MessageDAO {
