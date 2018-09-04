@@ -16,8 +16,15 @@ import java.util.List;
 
 /**
  * Created by nowcoder on 2018/7/2.
-   评论中心：MessageController
- *conversationDetail：RequestMethod.GET
+   获取站内信：MessageController
+ *conversationDetail："conversationId；得到conversationList，ViewObject中：同时显示fromId（userID）
+ *      得到用户的头条信息，都加入到message中==将其加入到model可以使用了letterDetail
+ *conversationList(Model model)：获取站内信的细节
+ *       判断localId是那个人的Id，并在视图vo中添加这个人的所有属性：letter（信的内容）
+ *addMessage：新建一个msg类，设置相关属性，调用MessageService.addMessage
+ *       返回新加的xiaoxi：ToutiaoUtil.getJSONString(msg.getId())
+ *
+ *
 
  */
 @Controller
@@ -92,7 +99,7 @@ public class MessageController {
         }
         return "letter";
     }
-/*
+/**
 *addMessage
  */
     @RequestMapping(path = {"/msg/addMessage"}, method = {RequestMethod.GET, RequestMethod.POST})
