@@ -4,6 +4,7 @@ import java.util.Date;
 
 /**
  * Created by nowcoder on 2018/7/7.
+ * 评论中心：要有id,userId,entityId,entityType,content,craeteDate,status
  */
 public class Comment {
     private int id;
