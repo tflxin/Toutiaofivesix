@@ -4,7 +4,8 @@ import java.util.Date;
 
 /**
  * Created by nowcoder on 2018/7/7.
- 评论中心用到的
+ 评论中心用到的消息列表
+ Message:id.fromId,toId,content,createDate,hasRead,conversationId
  */
 public class Message {
     private int id;
